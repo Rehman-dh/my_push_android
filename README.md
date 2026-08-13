@@ -25,7 +25,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("com.github.Rehman-dh:MyPush.Android:0.1.0") // or a commit hash
+    implementation("com.github.Rehman-dh:my_push_android:0.1.0") // or a commit hash
 }
 ```
 
@@ -102,5 +102,5 @@ val actionId = intent.getStringExtra("mypush_action_id")
 
 This repo ships without a committed Gradle wrapper. Open it once in **Android
 Studio** (it generates `gradlew` + the wrapper), or run `gradle wrapper`, then
-commit. Push to GitHub as `MyPush.Android` and JitPack builds each tagged release
-as `com.github.Rehman-dh:MyPush.Android:<tag>`.
+commit. On GitHub (`my_push_android`) JitPack builds each tagged release as
+`com.github.Rehman-dh:my_push_android:<tag>`.

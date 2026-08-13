@@ -49,7 +49,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.Rehman-dh"
-                artifactId = "MyPush.Android"
+                artifactId = "my_push_android"
                 version = "0.1.0"
             }
         }
