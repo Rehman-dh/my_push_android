@@ -31,6 +31,14 @@ object MyPush {
 
     const val NOTIFICATION_PERMISSION_REQUEST = 9001
 
+    /**
+     * Your self-hosted dashboard's base URL, baked into the SDK so host apps only
+     * need to pass the App Key (like OneSignal only needs an App ID). Set this once
+     * to your deployment; apps can still override it per-call via `apiBaseUrl`.
+     */
+    @JvmStatic
+    var defaultApiBaseUrl: String = "https://my-push-backend.vercel.app"
+
     private var appContext: Context? = null
     private var api: ApiClient? = null
     private var deviceId: String? = null
@@ -55,11 +63,14 @@ object MyPush {
     fun initialize(
         context: Context,
         appKey: String,
-        apiBaseUrl: String,
+        apiBaseUrl: String = defaultApiBaseUrl,
         autoInitializeFirebase: Boolean = false,
     ) {
         val ctx = context.applicationContext
         appContext = ctx
+        require(apiBaseUrl.isNotBlank() && !apiBaseUrl.contains("YOUR-DASHBOARD")) {
+            "MyPush: set MyPush.defaultApiBaseUrl to your dashboard URL, or pass apiBaseUrl."
+        }
         api = ApiClient(apiBaseUrl, appKey)
         deviceId = Store.deviceId(ctx)
         Store.saveConfig(ctx, appKey, apiBaseUrl)

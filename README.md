@@ -41,6 +41,15 @@ dependencies {
 
 ## Usage
 
+Set your dashboard URL once (e.g. in `App.onCreate`, before `initialize`):
+
+```kotlin
+MyPush.defaultApiBaseUrl = "https://my-push-backend.vercel.app"
+```
+
+…or edit the default in `MyPush.kt`. After that, apps pass only the **App Key**
+(like OneSignal only needs an App ID):
+
 ```kotlin
 class App : Application() {
     override fun onCreate() {
@@ -48,7 +57,6 @@ class App : Application() {
         MyPush.initialize(
             context = this,
             appKey = "pub_xxxxxxxx",                 // App Key from the dashboard
-            apiBaseUrl = "https://your-dashboard.vercel.app",
             // autoInitializeFirebase = true,        // only for zero-config
         )
         MyPush.onNotificationClick { data ->
