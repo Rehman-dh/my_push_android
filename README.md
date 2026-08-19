@@ -25,7 +25,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("com.github.Rehman-dh:my_push_android:0.1.0") // or a commit hash
+    implementation("com.github.Rehman-dh:my_push_android:0.2.0") // or a commit hash
 }
 ```
 
@@ -41,14 +41,10 @@ dependencies {
 
 ## Usage
 
-Set your dashboard URL once (e.g. in `App.onCreate`, before `initialize`):
-
-```kotlin
-MyPush.defaultApiBaseUrl = "https://my-push-backend.vercel.app"
-```
-
-…or edit the default in `MyPush.kt`. After that, apps pass only the **App Key**
-(like OneSignal only needs an App ID):
+The dashboard URL is baked into the SDK (`MyPush.defaultApiBaseUrl` =
+`https://pushnotify.mycdnpro.com`), so apps pass only the **App Key** (like
+OneSignal only needs an App ID). To point at a different backend, set
+`MyPush.defaultApiBaseUrl` before `initialize`, or pass `apiBaseUrl` to it.
 
 ```kotlin
 class App : Application() {

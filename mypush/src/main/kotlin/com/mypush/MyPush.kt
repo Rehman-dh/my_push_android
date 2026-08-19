@@ -37,7 +37,7 @@ object MyPush {
      * to your deployment; apps can still override it per-call via `apiBaseUrl`.
      */
     @JvmStatic
-    var defaultApiBaseUrl: String = "https://my-push-backend.vercel.app"
+    var defaultApiBaseUrl: String = "https://pushnotify.mycdnpro.com"
 
     private var appContext: Context? = null
     private var api: ApiClient? = null
