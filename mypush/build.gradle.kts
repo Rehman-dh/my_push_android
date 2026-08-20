@@ -50,7 +50,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.Rehman-dh"
                 artifactId = "my_push_android"
-                version = "0.2.0"
+                version = "0.2.1"
             }
         }
     }
